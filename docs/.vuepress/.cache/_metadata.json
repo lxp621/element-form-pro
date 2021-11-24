@@ -1,0 +1,36 @@
+{
+  "hash": "73fe757b",
+  "browserHash": "27f9ae77",
+  "optimized": {
+    "element-plus": {
+      "file": "/Users/lixiaopan/workspace/组件库/element-form-pro/docs/.vuepress/.cache/element-plus.js",
+      "src": "/Users/lixiaopan/workspace/组件库/element-form-pro/node_modules/.pnpm/element-plus@1.1.0-beta.24_vue@3.2.22/node_modules/element-plus/es/index.js",
+      "needsInterop": false
+    },
+    "@vuepress/shared": {
+      "file": "/Users/lixiaopan/workspace/组件库/element-form-pro/docs/.vuepress/.cache/@vuepress_shared.js",
+      "src": "/Users/lixiaopan/workspace/组件库/element-form-pro/node_modules/.pnpm/@vuepress+shared@2.0.0-beta.27/node_modules/@vuepress/shared/lib/esm/index.js",
+      "needsInterop": false
+    },
+    "vue": {
+      "file": "/Users/lixiaopan/workspace/组件库/element-form-pro/docs/.vuepress/.cache/vue.js",
+      "src": "/Users/lixiaopan/workspace/组件库/element-form-pro/node_modules/.pnpm/@vue+runtime-dom@3.2.22/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "file": "/Users/lixiaopan/workspace/组件库/element-form-pro/docs/.vuepress/.cache/vue-router.js",
+      "src": "/Users/lixiaopan/workspace/组件库/element-form-pro/node_modules/.pnpm/vue-router@4.0.12_vue@3.2.22/node_modules/vue-router/dist/vue-router.esm-bundler.js",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "file": "/Users/lixiaopan/workspace/组件库/element-form-pro/docs/.vuepress/.cache/@vueuse_core.js",
+      "src": "/Users/lixiaopan/workspace/组件库/element-form-pro/node_modules/.pnpm/@vueuse+core@6.9.2_vue@3.2.22/node_modules/@vueuse/core/index.mjs",
+      "needsInterop": false
+    },
+    "nprogress": {
+      "file": "/Users/lixiaopan/workspace/组件库/element-form-pro/docs/.vuepress/.cache/nprogress.js",
+      "src": "/Users/lixiaopan/workspace/组件库/element-form-pro/node_modules/.pnpm/nprogress@0.2.0/node_modules/nprogress/nprogress.js",
+      "needsInterop": true
+    }
+  }
+}
