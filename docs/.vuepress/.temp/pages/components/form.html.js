@@ -1,10 +1,10 @@
 export const data = {
   "key": "v-89c9a156",
   "path": "/components/form.html",
-  "title": "form",
+  "title": "form基本使用",
   "lang": "en-US",
   "frontmatter": {
-    "title": "form",
+    "title": "form基本使用",
     "desc": "form"
   },
   "excerpt": "",
@@ -24,12 +24,12 @@ export const data = {
   ],
   "filePathRelative": "components/form.md",
   "git": {
-    "updatedTime": 1637754619000,
+    "updatedTime": 1658211247000,
     "contributors": [
       {
         "name": "lixiaopan",
         "email": "lixiaopan@jd.com",
-        "commits": 1
+        "commits": 2
       }
     ]
   }

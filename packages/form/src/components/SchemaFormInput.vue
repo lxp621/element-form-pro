@@ -5,6 +5,9 @@
     v-on="onEvents"
     @change="$emit('change', { prop, value: $event })"
   >
+    <template v-for="(item, key) in $slots" v-slot:[key]>
+      <slot :name="key"></slot>
+    </template>
   </el-input>
 </template>
 

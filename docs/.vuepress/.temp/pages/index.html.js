@@ -31,7 +31,7 @@ export const data = {
         "details": "灵活的响应式的栅格表单布局"
       }
     ],
-    "footer": "MIT Licensed | Copyright © 2021-present lxp"
+    "footer": "MIT Licensed | Copyright © 2022-present lxp"
   },
   "excerpt": "",
   "headers": [],

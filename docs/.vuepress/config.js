@@ -16,13 +16,14 @@ module.exports = {
         ],
         sidebar: {
             // 侧边栏
-            "/": [
+            '/guide/': [
                 {
                     title: '指南',
                     collapsable: false,
                     children: [
-                        '',
-                        '快速开始'
+                        { text: '介绍', link: '/guide/' },
+                        { text: '快速开始', link: '/guide/start' },
+                        { text: '在线示例', link: '/guide/online-demo' }
                     ]
                 },
                 {
@@ -30,8 +31,8 @@ module.exports = {
                     collapsable: false,
                     sidebarDepth: 1,
                     children: [
-                        { text: 'form 表单', link: '/components/form' },
-                        { text: 'select 下拉', link: '/components/select' }
+                        { text: 'form 表单', link: '/guide/component/SchemaForm' },
+                        { text: 'schema 详解', link: '/guide/component/schema' }
                     ]
                 }
             ]

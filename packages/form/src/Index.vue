@@ -19,9 +19,13 @@
                 :options="options"
                 v-on="$listeners"
             >
-              <slot v-if="col.labelSlot" :name="col.labelSlot" :slot="col.labelSlot"></slot>
-              <slot v-if="col.frontSlot" :name="col.frontSlot" :slot="col.frontSlot"></slot>
-              <slot v-if="col.rearSlot" :name="col.rearSlot" :slot="col.rearSlot"></slot>
+              <!--传递插槽 循环所有input插槽-->
+              <template v-for="(item, key) in $slots" v-slot:[key]>
+                <slot :name="key"></slot>
+              </template>
+<!--              <slot v-if="col.labelSlot" :name="col.labelSlot" :slot="col.labelSlot"></slot>-->
+<!--              <slot v-if="col.frontSlot" :name="col.frontSlot" :slot="col.frontSlot"></slot>-->
+<!--              <slot v-if="col.rearSlot" :name="col.rearSlot" :slot="col.rearSlot"></slot>-->
             </schema-form-item>
           </template>
         </el-col>

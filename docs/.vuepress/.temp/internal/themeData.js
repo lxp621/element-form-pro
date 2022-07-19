@@ -7,13 +7,23 @@ export const themeData = {
     }
   ],
   "sidebar": {
-    "/": [
+    "/guide/": [
       {
         "title": "指南",
         "collapsable": false,
         "children": [
-          "",
-          "快速开始"
+          {
+            "text": "介绍",
+            "link": "/guide/"
+          },
+          {
+            "text": "快速开始",
+            "link": "/guide/start"
+          },
+          {
+            "text": "在线示例",
+            "link": "/guide/online-demo"
+          }
         ]
       },
       {
@@ -23,11 +33,11 @@ export const themeData = {
         "children": [
           {
             "text": "form 表单",
-            "link": "/components/form"
+            "link": "/guide/component/SchemaForm"
           },
           {
-            "text": "select 下拉",
-            "link": "/components/select"
+            "text": "schema 详解",
+            "link": "/guide/component/schema"
           }
         ]
       }
