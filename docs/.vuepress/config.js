@@ -4,7 +4,7 @@ module.exports = {
     title: 'Element-Plus Schema form',
     description: '基于 JSON Schema 构建 element-plus 表单，表单页面开发从未如此高效',
     base: '/element-form-pro/',
-    bundler: '@vuepress/vite',
+    // bundler: '@vuepress/vite',
     alias,
     themeConfig: {
         sidebarDepth: 2,
@@ -30,7 +30,8 @@ module.exports = {
                     collapsable: false,
                     sidebarDepth: 1,
                     children: [
-                        { text: 'form 表单', link: '/components/form' }
+                        { text: 'form 表单', link: '/components/form' },
+                        { text: 'select 下拉', link: '/components/select' }
                     ]
                 }
             ]

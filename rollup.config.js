@@ -13,7 +13,8 @@ import { DEFAULT_EXTENSIONS } from '@babel/core'
 const isDev = process.env.NODE_ENV !== 'production'
 // packages 文件夹路径
 const root = path.resolve(__dirname, 'packages')
-
+// const rollupPostcssLessLoader = require('rollup-plugin-postcss-webpack-alias-less-loader')
+// const NODE_MODULE_PATH = path.resolve('../../node_modules')
 // 公共插件配置
 const getPlugins = () => {
   return [
@@ -28,6 +29,12 @@ const getPlugins = () => {
     commonjs(),
     json(),
     postcss({
+      // loaders: [
+      //   rollupPostcssLessLoader({
+      //     nodeModulePath: NODE_MODULE_PATH,
+      //     aliases: {}
+      //   })
+      // ],
       plugins: [require('autoprefixer')],
       // 把 css 插入到 style 中
       inject: true,
@@ -73,7 +80,7 @@ module.exports = fs
           },
           {
             name: 'index.common',
-            file: path.join(root, item, pkg.module),
+            file: path.join(root, item, 'dist/index.common.js'),
             format: 'cjs',
             sourcemap: isDev,
             globals: {

@@ -4,10 +4,10 @@
  */
 import { defineClientAppEnhance } from '@vuepress/client'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-// import 'element-plus/theme-chalk/src/index.scss'
+// import 'element-plus/dist/index.css'
+import 'element-plus/theme-chalk/src/index.scss'
 // -- APPSTART ITEMS HERE --
-import SchemaForm from "../../packages/form/src/main"
+import SchemaForm from '../../packages/form/src/main'
 
 export default defineClientAppEnhance(({ app }) => {
   // -- APPEND ITEMS HERE --

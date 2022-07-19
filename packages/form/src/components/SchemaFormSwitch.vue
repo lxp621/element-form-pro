@@ -1,11 +1,10 @@
 <template>
-  <el-input
+  <el-switch
     v-model="bindVal"
     v-bind="attrsAll"
     v-on="onEvents"
     @change="$emit('change', { prop, value: $event })"
-  >
-  </el-input>
+  />
 </template>
 
 <script>
@@ -13,17 +12,17 @@ import { defineComponent } from 'vue'
 import { withProps, useFormMixin } from '../composables/form-mixin'
 
 export default defineComponent({
-  name: 'SchemaFormInput',
+	name: 'SchemaFormSwitch',
 	props: {
 		...withProps()
 	},
 	setup (props, { attrs, emit }) {
 		const { bindVal, attrsAll } = useFormMixin(props, { attrs, emit })
-    return { bindVal, attrsAll }
-  }
+		return { bindVal, attrsAll }
+	}
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 
 </style>

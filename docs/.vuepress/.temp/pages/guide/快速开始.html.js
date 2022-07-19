@@ -34,7 +34,16 @@ export const data = {
     }
   ],
   "filePathRelative": "guide/快速开始.md",
-  "git": {}
+  "git": {
+    "updatedTime": 1637754619000,
+    "contributors": [
+      {
+        "name": "lixiaopan",
+        "email": "lixiaopan@jd.com",
+        "commits": 1
+      }
+    ]
+  }
 }
 
 if (import.meta.webpackHot) {

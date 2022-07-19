@@ -24,6 +24,10 @@ export const themeData = {
           {
             "text": "form 表单",
             "link": "/components/form"
+          },
+          {
+            "text": "select 下拉",
+            "link": "/components/select"
           }
         ]
       }

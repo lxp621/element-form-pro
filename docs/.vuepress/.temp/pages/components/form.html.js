@@ -17,25 +17,22 @@ export const data = {
     },
     {
       "level": 3,
-      "title": "SumTable Attributes",
-      "slug": "sumtable-attributes",
-      "children": []
-    },
-    {
-      "level": 3,
-      "title": "Pagenation Attributes",
-      "slug": "pagenation-attributes",
-      "children": []
-    },
-    {
-      "level": 3,
-      "title": "Events",
-      "slug": "events",
+      "title": "schema",
+      "slug": "schema",
       "children": []
     }
   ],
   "filePathRelative": "components/form.md",
-  "git": {}
+  "git": {
+    "updatedTime": 1637754619000,
+    "contributors": [
+      {
+        "name": "lixiaopan",
+        "email": "lixiaopan@jd.com",
+        "commits": 1
+      }
+    ]
+  }
 }
 
 if (import.meta.webpackHot) {

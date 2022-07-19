@@ -36,7 +36,16 @@ export const data = {
   "excerpt": "",
   "headers": [],
   "filePathRelative": "index.md",
-  "git": {}
+  "git": {
+    "updatedTime": 1637754619000,
+    "contributors": [
+      {
+        "name": "lixiaopan",
+        "email": "lixiaopan@jd.com",
+        "commits": 1
+      }
+    ]
+  }
 }
 
 if (import.meta.webpackHot) {

@@ -16,11 +16,12 @@
       v-on="$listeners"
       :is="getComponentName(col.type)"
       :prop="col.prop"
-      v-model:value="model[col.prop]"
+      v-model="model[col.prop]"
       :modifier="col.modifier"
       :dynamicAttrs="col.dynamicAttrs"
       :onEvents="col.on"
       :options="options[col.prop]"
+      @change="changeEdit"
     >
     </component>
     <slot :name="col.rearSlot" v-if="col.rearSlot"></slot>
@@ -29,7 +30,9 @@
 </template>
 
 <script>
-export default {
+import importComp from './components/importComp'
+import { defineComponent, computed, reactive } from 'vue'
+export default defineComponent({
   name: 'SchemaFormItem',
   props: {
     model: { // 绑定的value值
@@ -42,23 +45,20 @@ export default {
       type: Object
     }
   },
-  data () {
-    return {
-      builtInNames: ['input', 'select', 'radio', 'datepicker',
-        'cascader', 'placeholder', 'checkbox', 'slider', 'timeselect', 'timepicker', 'jsoneditor', 'quill', 'codemirror',
-        'rate', 'switch', 'colorpicker', 'tags', 'progress']
-    }
+  components: {
+    ...importComp
   },
-  computed: {
-    labelContent () {
-      let _formItem = this.col.formItem || {}
+  setup (props, { emit }) {
+    const builtInNames = reactive(['input', 'select', 'radio', 'datepicker',
+      'cascader', 'placeholder', 'checkbox', 'slider', 'timeselect', 'timepicker', 'jsoneditor', 'quill', 'codemirror',
+      'rate', 'switch', 'colorpicker', 'tags', 'progress'])
+    const labelContent = computed(() => {
+      let _formItem = props.col.formItem || {}
       return _formItem.label || ''
-    }
-  },
-  methods: {
-    // 组件名称
-    getComponentName (type) {
-      if (this.builtInNames.includes(type)) {
+    })
+
+    const getComponentName = (type) => {
+      if (builtInNames.includes(type)) {
         // 内置组件
         return 'schema-form-' + type
       } else {
@@ -66,8 +66,16 @@ export default {
         return type
       }
     }
+    const changeEdit = ({ prop, value }) => {
+      emit('change', { prop, value })
+    }
+    return {
+      labelContent,
+      getComponentName,
+      changeEdit
+    }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
