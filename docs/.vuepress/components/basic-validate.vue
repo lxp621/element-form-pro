@@ -1,26 +1,16 @@
----
-title: 'form基本使用'
-desc: 'form'
----
-
-### form
-
-::: demo
-
-```vue
 <template>
   <el-form class="basic-instance" size="small" label-position="left" label-width="120px"
-		:model="model" :rules="rules" ref="formName">
+           :model="model" :rules="rules" ref="formName">
     <schema-form
         :layout="layout"
         :model="model"
         :schema="schema"
         :options="options"
     >
-			<template v-slot:line>
+      <template v-slot:line>
         <div class="line"></div>
       </template>
-			<template v-slot:submit>
+      <template v-slot:submit>
         <el-form-item>
           <el-button type="primary" @click="submitForm">立即创建</el-button>
           <el-button @click="resetForm">重置</el-button>
@@ -33,6 +23,7 @@ desc: 'form'
 <script>
 import { defineComponent, toRefs, reactive, ref } from 'vue'
 export default defineComponent({
+  name: 'BasicValidate',
   setup () {
     const initVal = reactive({
       // 表单布局
@@ -100,29 +91,29 @@ export default defineComponent({
           { label: '线下场地免费', value: '线下场地免费' }
         ]
       },
-			rules: {
-         name: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ],
-          region: [
-            { required: true, message: '请选择活动区域', trigger: 'change' }
-          ],
-          date1: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-          ],
-          date2: [
-            { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
-          ],
-          type: [
-            { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
-          ],
-          resource: [
-            { required: true, message: '请选择活动资源', trigger: 'change' }
-          ],
-          desc: [
-            { required: true, message: '请填写活动形式', trigger: 'blur' }
-          ]
+      rules: {
+        name: [
+          { required: true, message: '请输入活动名称', trigger: 'blur' },
+          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+        ],
+        region: [
+          { required: true, message: '请选择活动区域', trigger: 'change' }
+        ],
+        date1: [
+          { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
+        ],
+        date2: [
+          { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
+        ],
+        type: [
+          { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
+        ],
+        resource: [
+          { required: true, message: '请选择活动资源', trigger: 'change' }
+        ],
+        desc: [
+          { required: true, message: '请填写活动形式', trigger: 'blur' }
+        ]
       }
     })
     const formName = ref(null)
@@ -149,22 +140,3 @@ export default defineComponent({
     margin: 15px 5px 0;
   }
 </style>
-
-
-```
-
-:::
-
-### schema
-
-参数|说明|类型|可选值|默认值
-:--|:--|:--|:--|:--
-prop|数据字段|string|-|-
-type|组件类型|string|-|-
-formItem|表单属性|object|-|-
-modifier|修饰符|string|number,trim|-
-attrs|组件属性|object|-|-
-dynamicAttrs|组件动态属性| object|-|-
-on|组件事件|object|-|-
-hide|是否隐藏|boolean|-|false
-colGrid|栅格布局,与el-col属性相同|object|-|-
