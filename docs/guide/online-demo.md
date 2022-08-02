@@ -50,43 +50,18 @@ export default defineComponent({
       },
       // 表单 schema
       schema: [
-        [{ type: 'input', prop: 'name', formItem: { label: '活动名称' }, attrs: { placeholder: '请输入活动名称', disabled: true } }],
-        [{ type: 'select', prop: 'region', formItem: { label: '活动区域：' }, attrs: { placeholder: '请选择活动区域' } }],
-        [
-          {
-            type: 'datepicker',
-            prop: 'date1',
-            formItem: { label: '活动时间' },
-            colGrid: { span:11 }
-          },
-          { slot: 'line', colGrid: { span:2 } },
-          {
-            type: 'timeselect',
-            prop: 'date2',
-            formItem: { label: '', 'label-width': '0px' },
-            colGrid: { span:11 }
-          }
-        ],
-        [
-          { type: 'switch', prop: 'delivery', formItem: { label: '即时配送' } }
-        ],
-        [
-          { type: 'checkbox', prop: 'type', formItem: { label: '活动性质' } }
-        ],
-        [
-          { type: 'radio', prop: 'resource', formItem: { label: '特殊资源' } }
-        ],
-        [
-          {
-            type: 'input',
-            prop: 'desc',
-            formItem: { label: '活动形式' },
-            attrs: { type: 'textarea' }
-          }
-        ],
-        [
-          { slot: 'submit' }
-        ]
+        { type: 'input', prop: 'name', formItem: { label: '活动名称' }, attrs: { placeholder: '请输入活动名称', disabled: true } },
+        { type: 'select', prop: 'region', formItem: { label: '活动区域：' }, attrs: { placeholder: '请选择活动区域' } },
+        { type: 'switch', prop: 'delivery', formItem: { label: '即时配送' } },
+        { type: 'checkbox', prop: 'type', formItem: { label: '活动性质' } },
+        { type: 'radio', prop: 'resource', formItem: { label: '特殊资源' } },
+        {
+          type: 'input',
+          prop: 'desc',
+          formItem: { label: '活动形式' },
+          attrs: { type: 'textarea' }
+        },
+        { slot: 'submit' }
       ],
       // 表单 options
       options: {
@@ -154,17 +129,3 @@ export default defineComponent({
 ```
 
 :::
-
-### schema
-
-参数|说明|类型|可选值|默认值
-:--|:--|:--|:--|:--
-prop|数据字段|string|-|-
-type|组件类型|string|-|-
-formItem|表单属性|object|-|-
-modifier|修饰符|string|number,trim|-
-attrs|组件属性|object|-|-
-dynamicAttrs|组件动态属性| object|-|-
-on|组件事件|object|-|-
-hide|是否隐藏|boolean|-|false
-colGrid|栅格布局,与el-col属性相同|object|-|-
