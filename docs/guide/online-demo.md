@@ -46,7 +46,9 @@ export default defineComponent({
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
+        desc: '',
+				introduction: '',
+        tags: ['Tag 1', 'Tag 2', 'Tag 3']
       },
       // 表单 schema
       schema: [
@@ -55,12 +57,9 @@ export default defineComponent({
         { type: 'switch', prop: 'delivery', formItem: { label: '即时配送' } },
         { type: 'checkbox', prop: 'type', formItem: { label: '活动性质' } },
         { type: 'radio', prop: 'resource', formItem: { label: '特殊资源' } },
-        {
-          type: 'input',
-          prop: 'desc',
-          formItem: { label: '活动形式' },
-          attrs: { type: 'textarea' }
-        },
+				{ type: 'quill', prop: 'introduction', formItem: { label: '介绍' } },
+        { type: 'input', prop: 'desc', formItem: { label: '活动形式' }, attrs: { type: 'textarea' } },
+				{ type: 'tags', prop: 'tags', formItem: { label: '标签' }, attrs: { 'show-add': true } },
         { slot: 'submit' }
       ],
       // 表单 options
@@ -76,10 +75,6 @@ export default defineComponent({
         ]
       },
 			rules: {
-         name: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
-          ],
           region: [
             { required: true, message: '请选择活动区域', trigger: 'change' }
           ],
@@ -104,7 +99,7 @@ export default defineComponent({
     function submitForm () {
       formName.value.validate((valid) => {
         if (valid) {
-          console.log('submit!');
+          console.log('submit!', initVal.model);
         } else {
           return false;
         }

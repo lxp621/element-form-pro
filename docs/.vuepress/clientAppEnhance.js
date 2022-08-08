@@ -12,5 +12,9 @@ import SchemaForm from '../../packages/form/src/main'
 export default defineClientAppEnhance(({ app }) => {
   // -- APPEND ITEMS HERE --
 	app.use(ElementPlus)
-	app.use(SchemaForm)
+	app.use(SchemaForm, {
+		erpSelect: {
+			params: 'account'
+		}
+	})
 })

@@ -14,22 +14,17 @@
       {{tag}}
     </el-tag>
     <el-input
-      class="input-new-tag"
-      v-if="showAdd && inputVisible  "
-      v-model="inputValue"
-      ref="saveTagInput"
-      size="small"
-      @keyup.enter="handleInputConfirm"
-      @blur="handleInputConfirm"
-    >
-    </el-input>
-    <el-button
-      v-else
-      class="button-new-tag"
-      :size="buttonSize"
-      :type="buttonType"
-      @click="showInput"
-    >{{buttonWords}}</el-button>
+        class="input-new-tag"
+        v-if="showAdd && inputVisible"
+        ref="InputRef"
+        v-model="inputValue"
+        size="small"
+        @keyup.enter="handleInputConfirm"
+        @blur="handleInputConfirm"
+    />
+    <el-button v-else class="button-new-tag" :size="buttonSize" @click="showInput">
+      {{buttonWords}}
+    </el-button>
   </div>
 </template>
 
@@ -46,7 +41,7 @@ export default defineComponent({
 		  inputVisible: false,
 		  inputValue: ''
 	  })
-    const saveTagInput = ref(null)
+    const InputRef = ref()
 		const { bindVal, attrsAll } = useFormMixin(props, { attrs, emit })
     const formTags = useFormTags({ attrsAll: attrsAll.value })
 		function handleClose (tag) {
@@ -56,7 +51,7 @@ export default defineComponent({
 		function showInput () {
 			tagState.inputVisible = true
 			nextTick(_ => {
-				saveTagInput.value.input.focus()
+				InputRef.value.input.focus()
 			})
 		}
 		function handleInputConfirm () {
@@ -69,7 +64,7 @@ export default defineComponent({
 			emit('change', { prop: props.prop, value: bindVal.value })
 		}
 		return { bindVal, attrsAll, ...toRefs(tagState), handleClose,
-      showInput, handleInputConfirm, saveTagInput, ...formTags }
+      showInput, handleInputConfirm, InputRef, ...formTags }
 	}
 })
 </script>

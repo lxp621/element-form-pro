@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
 export const withProps = () => ({
   prop: String,
   modifier: String, // v-model修饰符
@@ -9,7 +9,8 @@ export const withProps = () => ({
     default () { return {} }
   }
 })
-export const useFormMixin = ({ modifier, dynamicAttrs }, { attrs, emit }) => {
+export const useFormMixin = ({ modifier, dynamicAttrs = {} }, { attrs, emit }) => {
+  const instance = getCurrentInstance()
   const formatVal = (val) => {
     if (modifier === 'number') {
       let n = parseFloat(val)
@@ -19,14 +20,15 @@ export const useFormMixin = ({ modifier, dynamicAttrs }, { attrs, emit }) => {
     return val
   }
   const componentName = computed(() => {
-    let _name = this.$options.name
+    let _name = instance.ctx.$options.name
     return _name.replace('SchemaForm', '').toLowerCase() || ''
   })
   const globalOptions = computed(() => {
-    return {} // this.$globalParams[this.componentName] || {}
+    const globalPro = instance.appContext.config.globalProperties
+    return globalPro.$globalParams[componentName.value] || {}
   })
   const attrsAll = computed(() => {
-    return { ...globalOptions, ...attrs, ...dynamicAttrs }
+    return { ...globalOptions.value, ...attrs, ...dynamicAttrs }
   })
   const bindVal = computed({
     get: () => formatVal(attrs.modelValue),
@@ -37,8 +39,15 @@ export const useFormMixin = ({ modifier, dynamicAttrs }, { attrs, emit }) => {
   return { bindVal, componentName, globalOptions, attrsAll, formatVal }
 }
 export const useFormTags = ({ attrsAll }) => {
+  Object.keys(attrsAll).forEach(key => { // 兼容驼峰式及中横线式
+    if (typeof (attrsAll[key]) === 'string' || typeof (attrsAll[key]) === 'boolean') {
+      const newKey = key.replace( /-([a-z])/g, ( all, i ) => (i.toUpperCase()))
+      attrsAll[newKey] = attrsAll[key]
+      delete attrsAll[key]
+    }
+  })
   const showAdd = computed(() => { // 是否展示新增按钮
-    return attrsAll['show-add'] ? attrsAll['show-add'] : false
+    return attrsAll['showAdd'] ? attrsAll['showAdd'] : false
   })
   const closable = computed(() => { // 标签是否可删除
     return attrsAll.hasOwnProperty('closable') ? attrsAll.closable : true
@@ -59,13 +68,13 @@ export const useFormTags = ({ attrsAll }) => {
     return attrsAll.color ? attrsAll.color : ''
   })
   const buttonSize = computed(() => { // 按钮尺寸
-    return attrsAll['button-size'] ? attrsAll['button-size'] : 'small'
+    return attrsAll['buttonSize'] ? attrsAll['buttonSize'] : 'small'
   })
   const buttonWords = computed(() => { // 按钮文案
-    return attrsAll['button-words'] ? attrsAll['button-words'] : '+ New Tag'
+    return attrsAll['buttonWords'] ? attrsAll['buttonWords'] : '+ New Tag'
   })
   const buttonType = computed(() => { // 按钮类型
-    return attrsAll['button-type'] ? attrsAll['button-type'] : ''
+    return attrsAll['buttonType'] ? attrsAll['buttonType'] : ''
   })
   return { showAdd, closable, type, hit, size, effect, color, buttonSize, buttonWords, buttonType }
 }

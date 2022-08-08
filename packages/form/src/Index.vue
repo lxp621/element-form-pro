@@ -38,7 +38,8 @@
 import SchemaFormWrap from './SchemaFormWrap'
 import SchemaFormItem from './SchemaFormItem.vue'
 import { defineComponent, computed } from 'vue'
-// import { chunckBy } from './util'
+import { chunckBy } from './util'
+import chunk from 'lodash.chunk'
 export default defineComponent({
   name: 'SchemaForm',
   components: {
@@ -50,10 +51,9 @@ export default defineComponent({
       type: Object,
       default: () => {}
     },
-    // rowLayout: {
-    //   type: Array,
-    //   default: () => [3, 3]
-    // },
+    rowLayout: {
+      type: Array
+    },
     schema: { // 表单的格局
       type: Array,
       required: true,
@@ -73,10 +73,12 @@ export default defineComponent({
   },
   setup(props) {
     const formatedSchema = computed(() => {
-      return props.schema.map(list => {
-	      let _showNum = list.filter(item => !item.hide).length || 1
-        return list.map(obj => ({ ...obj, colGrid: obj.colGrid || Math.round(24 / _showNum) }))
-      })
+	    const list = props.schema.filter(it => !it.isDelete && !it.hide)
+	    return props.rowLayout ? chunckBy(list, props.rowLayout) : chunk(list, 1)
+      // return props.schema.map(list => {
+	    //   let _showNum = list.filter(item => !item.hide).length || 1
+      //   return list.map(obj => ({ ...obj, colGrid: obj.colGrid || Math.round(24 / _showNum) }))
+      // })
     })
     return {
       formatedSchema
