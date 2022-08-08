@@ -57,7 +57,6 @@ export default defineComponent({
         { type: 'switch', prop: 'delivery', formItem: { label: '即时配送' } },
         { type: 'checkbox', prop: 'type', formItem: { label: '活动性质' } },
         { type: 'radio', prop: 'resource', formItem: { label: '特殊资源' } },
-				{ type: 'quill', prop: 'introduction', formItem: { label: '介绍' } },
         { type: 'input', prop: 'desc', formItem: { label: '活动形式' }, attrs: { type: 'textarea' } },
 				{ type: 'tags', prop: 'tags', formItem: { label: '标签' }, attrs: { 'show-add': true } },
         { slot: 'submit' }

@@ -20,8 +20,8 @@ export const useFormMixin = ({ modifier, dynamicAttrs = {} }, { attrs, emit }) =
     return val
   }
   const componentName = computed(() => {
-    let _name = instance.ctx.$options.name
-    return _name.replace('SchemaForm', '').toLowerCase() || ''
+    let _name = instance?.ctx?.$options?.name
+    return _name?.replace('SchemaForm', '').toLowerCase() || ''
   })
   const globalOptions = computed(() => {
     const globalPro = instance.appContext.config.globalProperties
@@ -41,7 +41,7 @@ export const useFormMixin = ({ modifier, dynamicAttrs = {} }, { attrs, emit }) =
 export const useFormTags = ({ attrsAll }) => {
   Object.keys(attrsAll).forEach(key => { // 兼容驼峰式及中横线式
     if (typeof (attrsAll[key]) === 'string' || typeof (attrsAll[key]) === 'boolean') {
-      const newKey = key.replace( /-([a-z])/g, ( all, i ) => (i.toUpperCase()))
+      const newKey = key?.replace( /-([a-z])/g, ( all, i ) => (i.toUpperCase()))
       attrsAll[newKey] = attrsAll[key]
       delete attrsAll[key]
     }
