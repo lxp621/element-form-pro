@@ -1,20 +1,20 @@
 <template>
-<!--  <quill-editor-->
-<!--    v-model:value="bindVal"-->
-<!--    v-bind="attrsAll"-->
-<!--    v-on="onEvents"-->
-<!--  />-->
+  <quill-editor
+    v-model:value="bindVal"
+    v-bind="attrsAll"
+    v-on="onEvents"
+  />
 </template>
 
 <script>
-// import { quillEditor } from 'vue3-quill'
+import { quillEditor } from 'vue3-quill'
 import { defineComponent } from 'vue'
 import { withProps, useFormMixin } from '../composables/form-mixin'
 
 export default defineComponent({
   name: 'SchemaFormQuill',
   components: {
-	  // quillEditor
+	  quillEditor
   },
 	props: {
 		...withProps()

@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import SchemaFormWrap from './SchemaFormWrap'
+import SchemaFormWrap from './SchemaFormWrap.vue'
 import SchemaFormItem from './SchemaFormItem.vue'
 import { defineComponent, computed } from 'vue'
 import { chunckBy } from './util'
