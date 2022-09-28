@@ -10,19 +10,19 @@
 
 类型|含义|属性参考
 :--|:--|:--
-input| 输入框 | [el-input](https://element.eleme.cn/#/zh-CN/component/input)
-select| 选择器 | [el-select](https://element.eleme.cn/#/zh-CN/component/select)
-radio| 单选框组 | [el-radio-group](https://element.eleme.cn/#/zh-CN/component/radio)
-checkbox| 多选框组 | [el-checkbox-group](https://element.eleme.cn/#/zh-CN/component/checkbox)
-cascader| 级联选择器 | [el-cascader](https://element.eleme.cn/#/zh-CN/component/cascader)
-switch| 开关 | [el-switch](https://element.eleme.cn/#/zh-CN/component/switch)
-slider| 滑块 | [el-slider](https://element.eleme.cn/#/zh-CN/component/slider)
-datepicker| 日期选择器 | [el-date-picker](https://element.eleme.cn/#/zh-CN/component/date-picker)
-timeselect| 固定时间 | [el-time-select](https://element.eleme.cn/#/zh-CN/component/time-picker)
-timepicker| 任意时间 | [el-time-picker](https://element.eleme.cn/#/zh-CN/component/time-picker)
-colorpicker| 颜色选择器 | [el-color-picker](https://element.eleme.cn/#/zh-CN/component/color-picker)
-progress| 进度条 | [el-progress](https://element.eleme.cn/#/zh-CN/component/progress)
-rate| 评分 | [el-rate](https://element.eleme.cn/#/zh-CN/component/rate)
+input| 输入框 | [el-input](https://element-plus.gitee.io/zh-CN/component/input.html)
+select| 选择器 | [el-select](https://element-plus.gitee.io/zh-CN/component/select.html)
+radio| 单选框组 | [el-radio-group](https://element-plus.gitee.io/zh-CN/component/radio.html)
+checkbox| 多选框组 | [el-checkbox-group](https://element-plus.gitee.io/zh-CN/component/checkbox.html)
+cascader| 级联选择器 | [el-cascader](https://element-plus.gitee.io/zh-CN/component/cascader.html)
+switch| 开关 | [el-switch](https://element-plus.gitee.io/zh-CN/component/switch.html)
+slider| 滑块 | [el-slider](https://element-plus.gitee.io/zh-CN/component/slider.html)
+datepicker| 日期选择器 | [el-date-picker](https://element-plus.gitee.io/zh-CN/component/date-picker.html)
+timeselect| 固定时间 | [el-time-select](https://element-plus.gitee.io/zh-CN/component/time-select.html)
+timepicker| 任意时间 | [el-time-picker](https://element-plus.gitee.io/zh-CN/component/time-picker.html)
+colorpicker| 颜色选择器 | [el-color-picker](https://element-plus.gitee.io/zh-CN/component/color-picker.html)
+progress| 进度条 | [el-progress](https://element-plus.gitee.io/zh-CN/component/progress.html)
+rate| 评分 | [el-rate](https://element-plus.gitee.io/zh-CN/component/rate.html)
 
 ## 表单属性 formItem
 

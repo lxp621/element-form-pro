@@ -1,4 +1,5 @@
-import { computed, getCurrentInstance } from 'vue'
+import { computed, getCurrentInstance, watch, ref } from 'vue'
+
 export const withProps = () => ({
   prop: String,
   modifier: String, // v-model修饰符
@@ -9,14 +10,16 @@ export const withProps = () => ({
     default () { return {} }
   }
 })
-export const useFormMixin = ({ modifier, dynamicAttrs = {} }, { attrs, emit }) => {
+export const useFormMixin = (props, { attrs, emit }) => {
+  console.log('attrs=', attrs)
+  const dyProps = ref({...props})
   const instance = getCurrentInstance()
   const formatVal = (val) => {
-    if (modifier === 'number') {
+    if (dyProps.value.modifier === 'number') {
       let n = parseFloat(val)
       return isNaN(n) ? val : n
     }
-    if (modifier === 'trim' && val) return val.trim()
+    if (dyProps.value.modifier === 'trim' && val) return val.trim()
     return val
   }
   const componentName = computed(() => {
@@ -28,7 +31,7 @@ export const useFormMixin = ({ modifier, dynamicAttrs = {} }, { attrs, emit }) =
     return globalPro.$globalParams[componentName.value] || {}
   })
   const attrsAll = computed(() => {
-    return { ...globalOptions.value, ...attrs, ...dynamicAttrs }
+    return { ...globalOptions.value, ...attrs, ...dyProps.value.dynamicAttrs }
   })
   const bindVal = computed({
     get: () => formatVal(attrs.modelValue),
@@ -36,6 +39,9 @@ export const useFormMixin = ({ modifier, dynamicAttrs = {} }, { attrs, emit }) =
       emit('update:modelValue', formatVal(val))
     }
   })
+  watch(() => props, (val)=> {
+    dyProps.value = val
+  }, {deep: true})
   return { bindVal, componentName, globalOptions, attrsAll, formatVal }
 }
 export const useFormTags = ({ attrsAll }) => {

@@ -28,6 +28,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
   .ql-container{
-    height: calc(100% - 50px);
+    height: calc(100% - 108px);
   }
 </style>

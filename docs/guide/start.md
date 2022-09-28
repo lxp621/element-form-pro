@@ -67,3 +67,4 @@ Vue.use(SchemaForm, {
   }
 })
 ```
+<demo />

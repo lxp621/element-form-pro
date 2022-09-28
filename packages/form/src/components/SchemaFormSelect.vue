@@ -34,15 +34,15 @@ export default defineComponent({
   setup (props, { attrs, emit }) {
 	  const { bindVal, attrsAll } = useFormMixin(props, { attrs, emit })
     const optionSides = computed(() => {
-		  return attrsAll.optionSides || ''
+		  return attrsAll.value.optionSides || ''
 	  })
 	  const hasOptionSides = computed(() => {
-		  return Array.isArray(optionSides) && optionSides.length >= 2
+		  return Array.isArray(optionSides.value) && optionSides.value.length >= 2
 	  })
     return { optionSides, hasOptionSides, bindVal, attrsAll }
   }
 })
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 </style>

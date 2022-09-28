@@ -15,11 +15,19 @@ SchemaForm 组件提供了便于创建自定义组件的方案，使用 `FormMix
 </template>
 
 <script>
-import { FormMixin } from '@vueblocks/element-schema-form'
-export default {
-  name: 'CustomNumber',
-  mixins: [FormMixin]
-}
+import { defineComponent } from 'vue'
+import { withProps, useFormMixin } from '../composables/form-mixin'
+
+export default defineComponent({
+	name: 'CustomNumber',
+	props: {
+		...withProps()
+	},
+	setup (props, { attrs, emit }) {
+		const { bindVal, attrsAll } = useFormMixin(props, { attrs, emit })
+		return { bindVal, attrsAll }
+	}
+})
 </script>
 ```
 

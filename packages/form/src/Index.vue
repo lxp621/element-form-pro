@@ -7,7 +7,7 @@
         :key="rowIndex"
     >
       <template v-for="(col, colIndex) in row">
-        <el-col v-bind="col.colGrid" v-if="!col.hide" :key="colIndex">
+        <el-col v-bind="col.colGrid || colCpt(row)" v-if="!col.hide" :key="colIndex">
           <slot v-if="col.slot" :name="col.slot"></slot>
           <template v-else>
             <!-- 具体组件的配置项目 -->
@@ -74,14 +74,18 @@ export default defineComponent({
   setup(props) {
     const formatedSchema = computed(() => {
 	    const list = props.schema.filter(it => !it.isDelete && !it.hide)
-	    return props.rowLayout ? chunckBy(list, props.rowLayout) : chunk(list, 1)
+	    return props.rowLayout ? chunckBy(list, props.rowLayout) : chunk(list, list.length)
       // return props.schema.map(list => {
 	    //   let _showNum = list.filter(item => !item.hide).length || 1
       //   return list.map(obj => ({ ...obj, colGrid: obj.colGrid || Math.round(24 / _showNum) }))
       // })
     })
+    const colCpt = (row) => {
+      return { span: Math.round(24 / row.length) }
+    }
     return {
-      formatedSchema
+      formatedSchema,
+      colCpt
     }
   }
 })

@@ -20,7 +20,7 @@
       :modifier="col.modifier"
       :dynamicAttrs="col.dynamicAttrs"
       :onEvents="col.on"
-      :options="options[col.prop]"
+      :options="options ? options[col.prop] : []"
       @change="changeEdit"
     >
     </component>
