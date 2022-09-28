@@ -16,7 +16,7 @@ SchemaForm 组件提供了便于创建自定义组件的方案，使用 `FormMix
 
 <script>
 import { defineComponent } from 'vue'
-import { withProps, useFormMixin } from '../composables/form-mixin'
+import { withProps, useFormMixin } from '@element-pro/form'
 
 export default defineComponent({
 	name: 'CustomNumber',
