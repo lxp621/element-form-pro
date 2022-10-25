@@ -57,7 +57,7 @@
     "vuepress-vite": "^2.0.0-beta.27",
     "vue3-quill": "^0.2.6"
   },
-  "repository": "git@github.com:leitingting08/sum-ui.git",
+  "repository": "https://github.com/lxp621/element-form-pro",
   "scripts": {
     "build": "yarn dist && NODE_ENV=production rollup -c",
     "build:watch": "rollup -c -w",

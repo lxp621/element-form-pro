@@ -24,6 +24,13 @@ SchemaForm 整体布局采用 el-row 和 el-col 进行封装, 通过基础的24�
 
 </code-contain>
 
+### 横向列布局
+<code-contain compName="RowLayout" link="https://codesandbox.io/s/xiangyingshibuju-xbdlp?fontsize=14">  
+
+@[code](../../.vuepress/components/row-layout.vue)
+
+</code-contain>
+
 
 ### layout Attributes
 
@@ -49,3 +56,9 @@ md|≥992px|响应式栅格数或者栅格属性对象|number/object (例如： 
 lg|≥1200px|响应式栅格数或者栅格属性对象|number/object (例如： {span: 4, offset: 4})|—|—
 xl|≥1920px|响应式栅格数或者栅格属性对象|number/object (例如： {span: 4, offset: 4})|—|—
 tag|自定义元素标签|string	*	div
+
+### rowLayout Attributes
+
+参数|说明|类型|可选值|默认值
+:--|:--|:--|:--|:--|
+-|行列设置，每行几列，如[3,3]为两行三列（第一行3列第二行3列）,不传默认为单列|Array|—|-

@@ -12,8 +12,7 @@
           <template v-else>
             <!-- 具体组件的配置项目 -->
             <schema-form-item
-                v-bind="col.formItem"
-                :prop="col.prop"
+                v-bind="$attrs"
                 :col="col"
                 :model="model"
                 :options="options"
@@ -51,7 +50,7 @@ export default defineComponent({
       type: Object,
       default: () => {}
     },
-    rowLayout: {
+    rowLayout: { // 每行几列，如[3,3]为两行三列（第一行3列第二行3列）,不传默认为单列
       type: Array
     },
     schema: { // 表单的格局
@@ -81,7 +80,7 @@ export default defineComponent({
       // })
     })
     const colCpt = (row) => {
-      return { span: Math.round(24 / row.length) }
+      return props.rowLayout ? { span: Math.round(24 / row.length) } : { span: 24 }
     }
     return {
       formatedSchema,

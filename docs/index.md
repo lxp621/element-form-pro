@@ -5,7 +5,7 @@ actions:
   link: /guide/
   type: primary
 - text: Components
-  link: /components/table.html
+  link: /guide/component/SchemaForm
   type: secondary
 
 features:
