@@ -1,6 +1,6 @@
 {
     "name": "@element-pro/form",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "基于 Vue3.x + ElementPlus 的表单组件库",
     "main": "dist/index.js",
     "typings": "typings/element-pro.d.ts",
