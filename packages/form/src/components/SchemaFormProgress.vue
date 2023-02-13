@@ -1,21 +1,24 @@
-<!--<template>-->
-<!--  <el-progress-->
-<!--    :percentage="bindVal"-->
-<!--    v-bind="attrsAll"-->
-<!--    v-on="onEvents"-->
-<!--    @change="$emit('change', { prop, value: $event })"-->
-<!--  />-->
-<!--</template>-->
+<template>
+  <el-progress
+    :percentage="bindVal"
+    v-bind="attrsAll"
+    v-on="onEvents"
+    @change="$emit('change', { prop, value: $event })"
+  />
+</template>
 
-<!--<script>-->
-<!--import FormMixin from '../mixins/form-mixin'-->
+<script>
+import { defineComponent } from 'vue'
+import { withProps, useFormMixin } from '../composables/form-mixin'
 
-<!--export default {-->
-<!--  name: 'SchemaFormProgress',-->
-<!--  mixins: [FormMixin]-->
-<!--}-->
-<!--</script>-->
-
-<!--<style lang="scss" scoped>-->
-
-<!--</style>-->
+export default defineComponent({
+	name: 'SchemaFormProgress',
+	props: {
+		...withProps()
+	},
+	setup (props, { attrs, emit }) {
+		const { bindVal, attrsAll } = useFormMixin(props, { attrs, emit })
+		return { bindVal, attrsAll }
+	}
+})
+</script>

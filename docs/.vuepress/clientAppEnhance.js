@@ -7,28 +7,16 @@ import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/src/index.scss'
 // -- APPSTART ITEMS HERE --
-// import SchemaAll from '../../packages/form/src/main'
+import SchemaForm from '../../packages/form/src/main'
 import VuePressComponents from './components/index'
 
 export default defineClientAppEnhance(({ app }) => {
   // -- APPEND ITEMS HERE --
 	app.use(ElementPlus)
 	app.use(VuePressComponents)
-	// app.use(SchemaAll.SchemaForm)
-	app.mixin({
-		mounted () {
-			import('../../packages/form/src/main').then(m => {
-				app.use(m.default.SchemaForm, {
-					erpSelect: {
-						params: 'account'
-					}
-				})
-			})
+	app.use(SchemaForm, {
+		erpSelect: {
+			params: 'account'
 		}
 	})
-	// app.use(SchemaAll.SchemaForm, {
-	// 	erpSelect: {
-	// 		params: 'account'
-	// 	}
-	// })
 })

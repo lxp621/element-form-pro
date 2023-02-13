@@ -1,15 +1,21 @@
-<!--<template>-->
-<!--  <div class="schema-form&#45;&#45;placeholder">-->
-<!--    <span>Empty Field</span>-->
-<!--  </div>-->
-<!--</template>-->
+<template>
+  <div class="schema-form--placeholder">
+    <span>Empty Field</span>
+  </div>
+</template>
 
-<!--<script>-->
-<!--export default {-->
-<!--  name: 'SchemaFormPlaceholder'-->
-<!--}-->
-<!--</script>-->
+<script>
+import { defineComponent } from 'vue'
+import { withProps, useFormMixin } from '../composables/form-mixin'
 
-<!--<style lang="scss" scoped>-->
-
-<!--</style>-->
+export default defineComponent({
+	name: 'SchemaFormPlaceholder',
+	props: {
+		...withProps()
+	},
+	setup (props, { attrs, emit }) {
+		const { bindVal, attrsAll } = useFormMixin(props, { attrs, emit })
+		return { bindVal, attrsAll }
+	}
+})
+</script>

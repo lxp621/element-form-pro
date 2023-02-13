@@ -30,7 +30,6 @@
 </template>
 
 <script>
-import importComp from './components/importComp'
 import { defineComponent, computed, reactive } from 'vue'
 export default defineComponent({
   name: 'SchemaFormItem',
@@ -44,9 +43,6 @@ export default defineComponent({
     col: {
       type: Object
     }
-  },
-  components: {
-    ...importComp
   },
   setup (props, { emit }) {
     const builtInNames = reactive(['input', 'select', 'radio', 'datepicker',
