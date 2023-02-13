@@ -11,7 +11,7 @@ export const withProps = () => ({
   }
 })
 export const useFormMixin = (props, { attrs, emit }) => {
-  console.log('attrs=', attrs)
+  // console.log('attrs=', attrs)
   const dyProps = ref({...props})
   const instance = getCurrentInstance()
   const formatVal = (val) => {
