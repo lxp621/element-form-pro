@@ -7,7 +7,6 @@ import ElementPlus from 'element-plus'
 // import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/src/index.scss'
 // -- APPSTART ITEMS HERE --
-import SchemaForm from '../../packages/form/src/main'
 import VuePressComponents from './components/index'
 
 export default defineClientAppEnhance(({ app }) => {
